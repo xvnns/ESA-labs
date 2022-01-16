@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+<a th:href="@{'/order/add/'}">Добавить заказ</a>
+<a th:href="@{'/product/list/'}">Все продукты</a>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Products</th>
+        <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.date}"></td>
+        <td>
+            <ul th:each="item : ${order.lineItems}">
+                <li th:text="${item.toString()}">
+                </li>
+            </ul>
+        </td>
+        <td>
+            <a th:href="@{'/order/delete/' + ${order.id}}">Удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

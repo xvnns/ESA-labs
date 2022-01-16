@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<a th:href="@{'/order/list/'}">Список заказов</a>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Serial number</th>
+        <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.serialNumber}"></td>
+        <td>
+            <a th:href="@{'/product/delete/' + ${product.id}}">Удалить</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

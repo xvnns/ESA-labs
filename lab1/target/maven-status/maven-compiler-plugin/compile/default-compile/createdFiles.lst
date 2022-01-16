@@ -1,0 +1,9 @@
+com\example\lab1\bean\MainBean.class
+com\example\lab1\dao\LineItemDAO.class
+com\example\lab1\dao\OrderDAO.class
+com\example\lab1\entity\LineItem.class
+com\example\lab1\dao\ProductDAO.class
+com\example\lab1\entity\Product.class
+com\example\lab1\entity\Order.class
+com\example\lab1\dao\EntityManagerCreator.class
+com\example\lab1\servlet\IndexServlet.class
