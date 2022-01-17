@@ -13,17 +13,15 @@ public class Email {
 
     @Column(name = "receiver")
     private String receiver;
-    @Column(name = "subject")
-    private String subject;
+
     @Column(name = "body")
     private String body;
 
     public Email() {
     }
 
-    public Email(String receiver, String subject, String body) {
+    public Email(String receiver, String body) {
         this.receiver = receiver;
-        this.subject = subject;
         this.body = body;
     }
 
@@ -41,14 +39,6 @@ public class Email {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
     }
 
     public String getBody() {

@@ -2,24 +2,29 @@ package com.example.lab4.service;
 
 import com.example.lab4.entity.EventType;
 import com.example.lab4.entity.Product;
-import com.example.lab4.notifications.JmsSenderService;
+import com.example.lab4.jms.JmsSenderService;
 import com.example.lab4.repository.ProductRepository;
 import com.example.lab4.response.BadResponse;
 import com.example.lab4.response.GoodResponse;
 import com.example.lab4.response.ServerResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductService {
+    public final ProductRepository productRepository;
+
+    private final JmsSenderService jmsSenderService;
 
     @Autowired
-    public ProductRepository productRepository;
-
-    @Autowired
-    private JmsSenderService jmsSenderService;
+    public ProductService(ProductRepository productRepository, JmsSenderService jmsSenderService) {
+        this.productRepository = productRepository;
+        this.jmsSenderService = jmsSenderService;
+    }
 
     public ServerResponse add(Long serialNumber) {
         Product product = new Product();
